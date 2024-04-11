@@ -4,9 +4,6 @@
 //This example shows how to program the A0 pin of the microcontroller to make use of the ADC.
 
 
-// Includes the necessary bibliography
-#include <Arduino.h>
-
 //Define the type of PIN variable
 const int pinSalida = D2;  // Puedes ajustar el número del pin según la conexión física
 

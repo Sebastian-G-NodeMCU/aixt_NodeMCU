@@ -2,9 +2,6 @@
 //where it is part of the AIXT project in charge of the teacher Fernando Santa Martinez 
 //derived from the NODE MCU microcontroller. 
 
-// Include the necessary library
-#include <Arduino.h>
-
 //Defines the type of input variable fitted to the physical connection of the microcontroller
 
 const int pinEntrada = D1;  

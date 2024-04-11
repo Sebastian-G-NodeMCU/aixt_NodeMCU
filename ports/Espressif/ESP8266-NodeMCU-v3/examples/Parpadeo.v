@@ -1,7 +1,7 @@
 import time {sleep_ms}
 import pin
 
-pin.setup(D4 pin.out)
+pin.setup(D4 pin.output)
 
 for {
 	pin.high(D4)
