@@ -1,7 +1,7 @@
 {
-    "aixt_linux":   ".",
-    "aixt_windows": ".",
-    "device":       "NXT",
+    "aixt_linux":   "../../../../src",
+    "aixt_windows": "..\\..\\..\\..\\src",
+    "device":       "ESP8266-NodeMCU-v3",
     "files.associations": {
         "*.aixt": "v",
         "*.nxc": "c",
