@@ -24,8 +24,15 @@ fn (mut gen Gen) assign_stmt(node ast.AssignStmt) string {
 				'array' {
 					var_kind = gen.table.type_kind((node.right[i] as ast.ArrayInit).elem_type).str()
 					out += '${gen.setup.value(var_kind).string()} ' // array's element type
-					out += '${gen.ast_node(node.left[i])}[${(node.right[i] as ast.ArrayInit).exprs.len}] = '
-					out += '${gen.ast_node(node.right[i])};\n'
+					out += '${gen.ast_node(node.left[i])}['
+					array_len := (node.right[i] as ast.ArrayInit).exprs.len
+					if  array_len != 0 {
+						out += '${array_len}] = ${gen.ast_node(node.right[i])};\n'
+					} else if gen.setup.value('fixed_size_arrays').bool() {
+						out += '${gen.setup.value('array_default_len').int()}];\n'	// port with fixed-size arrays
+					} else {
+						out += '];\n'	// port with dynamic-size arrays
+					}
 				}
 				'string' {
 					if (node.right[i] as ast.StringLiteral).val.len != 0 { // Constant strings
